@@ -1,0 +1,31 @@
+name: 'crypton'
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+    - main
+    - features/**
+    tags:
+    - 'v*.*.*'
+  pull_request:
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup MSBuild
+        uses: microsoft/setup-msbuild@v1
+
+      - name: Setup NuGet
+        uses: NuGet/setup-nuget@v1.0.2
+
+      - name: Restore Packages
+        run: nuget restore Crypton.sln
+
+      - name: Build Solution
+        run: |
+          msbuild Crypton.sln /nologo /p:platform="Any CPU" /p:configuration="Release"
