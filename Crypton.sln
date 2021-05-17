@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.31306.274
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{413EC81F-7A8B-4E7B-B48A-B6CE8F966ADC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crypton.Api", "src\Crypto.Api\Crypton.Api.csproj", "{B521B2FB-81EB-4BEB-B4B8-CA93CAE58A1A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crypton.Api", "src\Crypton.Api\Crypton.Api.csproj", "{B521B2FB-81EB-4BEB-B4B8-CA93CAE58A1A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{80CDE6A6-8BE4-4A97-B20F-19F4C79D24EE}"
 	ProjectSection(SolutionItems) = preProject
