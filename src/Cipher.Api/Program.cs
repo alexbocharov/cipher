@@ -7,7 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Serilog;
 using System;
 
-namespace Crypton.Api
+namespace Cipher.Api
 {
     public class Program
     {

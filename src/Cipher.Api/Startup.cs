@@ -1,14 +1,14 @@
 ﻿// Copyright (c) Alexander Bocharov. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
-using Crypton.Api.Services;
+using Cipher.Api.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
-namespace Crypton.Api
+namespace Cipher.Api
 {
     public class Startup
     {
@@ -22,7 +22,7 @@ namespace Crypton.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-            services.AddCryptonOptions(Configuration);
+            services.AddOptions(Configuration);
             services.AddSwagger();
 
             services.AddSingleton<IXmlDsigService, XmlDsigService>();
