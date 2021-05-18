@@ -1,8 +1,8 @@
-# Crypton
+# Cipher
 
-[![crypton](https://github.com/alexbocharov/crypton/actions/workflows/crypton.yml/badge.svg)](https://github.com/alexbocharov/crypton/actions/workflows/crypton.yml)
+[![cipher](https://github.com/alexbocharov/cipher/actions/workflows/cipher.yml/badge.svg)](https://github.com/alexbocharov/cipher/actions/workflows/cipher.yml)
 
-Crypton is a .NET Microservice built on top of the CryptoPro CSP.
+Cipher is a service built on top of the CryptoPro CSP.
 
 ## License
 
