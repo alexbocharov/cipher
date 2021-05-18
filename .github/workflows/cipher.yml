@@ -24,8 +24,8 @@ jobs:
         uses: NuGet/setup-nuget@v1.0.5
 
       - name: Restore Packages
-        run: nuget restore Crypton.sln
+        run: nuget restore Cipher.sln
 
       - name: Build Solution
         run: |
-          msbuild Crypton.sln /nologo /p:platform="Any CPU" /p:configuration="Release"
+          msbuild Cipher.sln /nologo /p:platform="Any CPU" /p:configuration="Release"

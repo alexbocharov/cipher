@@ -3,7 +3,7 @@
 
 using Microsoft.AspNetCore.Mvc;
 
-namespace Crypton.Api.Controllers
+namespace Cipher.Api.Controllers
 {
     public class HomeController : Controller
     {

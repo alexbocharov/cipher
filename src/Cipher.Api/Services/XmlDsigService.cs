@@ -12,7 +12,7 @@ using System.Xml;
 using CryptoPro.Sharpei.Xml;
 using Microsoft.Extensions.Logging;
 
-namespace Crypton.Api.Services
+namespace Cipher.Api.Services
 {
     public class XmlDsigService : IXmlDsigService
     {

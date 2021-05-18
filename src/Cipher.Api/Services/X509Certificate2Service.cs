@@ -7,14 +7,14 @@ using System;
 using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 
-namespace Crypton.Api.Services
+namespace Cipher.Api.Services
 {
     public class X509Certificate2Service : IX509Certificate2Service
     {
-        private readonly CryptonSettings _settings;
+        private readonly CipherSettings _settings;
         private readonly ILogger _logger;
 
-        public X509Certificate2Service(IOptionsMonitor<CryptonSettings> settings, ILogger<X509Certificate2Service> logger)
+        public X509Certificate2Service(IOptionsMonitor<CipherSettings> settings, ILogger<X509Certificate2Service> logger)
         {
             _settings = settings.CurrentValue;
             _logger = logger;

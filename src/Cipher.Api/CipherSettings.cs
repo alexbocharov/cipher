@@ -3,9 +3,9 @@
 
 using System.Security.Cryptography.X509Certificates;
 
-namespace Crypton.Api
+namespace Cipher.Api
 {
-    public class CryptonSettings
+    public class CipherSettings
     {
         public StoreLocation SigningCertificateStoreLocation { get; set; } = StoreLocation.CurrentUser;
         public StoreName SigningCertificateStroeName { get; set; } = StoreName.My;

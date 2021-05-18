@@ -3,12 +3,12 @@
 
 using System.Net;
 using System.Threading.Tasks;
-using Crypton.Api.Models;
-using Crypton.Api.Services;
+using Cipher.Api.Models;
+using Cipher.Api.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
-namespace Crypton.Api.Controllers
+namespace Cipher.Api.Controllers
 {
     [Route("api/[controller]")]
     public class XmlDsigController : Controller

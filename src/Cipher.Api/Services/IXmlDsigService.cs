@@ -4,7 +4,7 @@
 using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 
-namespace Crypton.Api.Services
+namespace Cipher.Api.Services
 {
     public interface IXmlDsigService
     {

@@ -3,7 +3,7 @@
 
 using Newtonsoft.Json;
 
-namespace Crypton.Api.Models
+namespace Cipher.Api.Models
 {
     public class XmlDsigSignRequest
     {
