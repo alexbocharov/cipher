@@ -1,0 +1,24 @@
+<Project>
+  <PropertyGroup>
+    <LangVersion>Preview</LangVersion>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <VersionPrefix>0.1.0</VersionPrefix>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <Product>Cipher</Product>
+    <Authors>Alexander Bocharov</Authors>
+    <Company></Company>
+    <Copyright>© Alexander Bocharov. All rights reserved.</Copyright>
+    <NeutralLanguage>en-US</NeutralLanguage>
+    <PackageLicenseType>Apache License Version 2.0</PackageLicenseType>
+    <MaintainerEmail>alex.bocharov@outlook.com</MaintainerEmail>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <RepositoryRoot>$(MSBuildThisFileDirectory)</RepositoryRoot>
+  </PropertyGroup>
+
+  <Import Project="..\eng\Versions.props" />
+
+</Project>

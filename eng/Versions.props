@@ -1,0 +1,54 @@
+<Project>
+  <PropertyGroup>
+    <MajorVersion>0</MajorVersion>
+    <MinorVersion>1</MinorVersion>
+    <PatchVersion>0</PatchVersion>
+    <PreReleaseVersionIteration></PreReleaseVersionIteration>
+    <PreReleaseVersionLabel></PreReleaseVersionLabel>
+    <PreReleaseBrandingLabel></PreReleaseBrandingLabel>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <BuildId>$(_BuildId)</BuildId>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(BuildId)' != ''">
+    <!-- This implements core versioning. Spec: https://github.com/dotnet/arcade/blob/master/Documentation/CorePackages/Versioning.md -->
+    <_BuildNumber>$(BuildId)</_BuildNumber>
+
+    <!-- _BuildNumber from CI is assumed to have format "yyyyMMdd.r". -->
+    <_BuildNumberYY>$(_BuildNumber.Substring(2, 2))</_BuildNumberYY>
+    <_BuildNumberMM>$(_BuildNumber.Substring(4, 2))</_BuildNumberMM>
+    <_BuildNumberDD>$(_BuildNumber.Substring(6, 2))</_BuildNumberDD>
+    <_BuildNumberR>$(_BuildNumber.Substring(9))</_BuildNumberR>
+
+    <!-- yy * 1000 + mm * 50 + dd -->
+    <_BuildNumberShortDate>$([MSBuild]::Add($([MSBuild]::Add($([MSBuild]::Multiply($(_BuildNumberYY), 1000)), $([MSBuild]::Multiply($(_BuildNumberMM), 50)))), $(_BuildNumberDD)))</_BuildNumberShortDate>
+
+    <VersionSuffixBuildOfTheDay>$([System.Convert]::ToInt32($(_BuildNumberR)))</VersionSuffixBuildOfTheDay>
+    <VersionSuffixBuildOfTheDayPadded>$(VersionSuffixBuildOfTheDay.PadLeft(2, '0'))</VersionSuffixBuildOfTheDayPadded>
+
+    <!-- TODO: consider using semver 2.0 instead, when/if https://github.com/dotnet/core-setup/issues/4795 is resolved -->
+    <_BuildNumberSuffix>$(_BuildNumberShortDate)-$(VersionSuffixBuildOfTheDayPadded)</_BuildNumberSuffix>
+
+    <FileRevisionVersion>$(_BuildNumberShortDate)</FileRevisionVersion>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(BuildId)' == ''">
+    <FileRevisionVersion>42424</FileRevisionVersion>
+  </PropertyGroup>
+
+  <PropertyGroup Label="Versioning settings">
+    <VersionPrefix Condition="'$(VersionPrefix)' == ''">$(MajorVersion).$(MinorVersion).$(PatchVersion)</VersionPrefix>
+    <VersionSuffix Condition="'$(PreReleaseVersionLabel)' != '' AND '$(PreReleaseVersionIteration)' != ''">$(PreReleaseVersionLabel).$(PreReleaseVersionIteration).$(BuildId)</VersionSuffix>
+
+    <FileVersion>$(VersionPrefix).$(FileRevisionVersion)</FileVersion>
+
+    <BrandingVersionSuffix>$(PreReleaseBrandingLabel) Build $(VersionSuffix)</BrandingVersionSuffix>
+    <PackageBrandingVersion>$(VersionPrefix)</PackageBrandingVersion>
+    <PackageBrandingVersion Condition="'$(VersionSuffix)' != ''">$(PackageBrandingVersion) $(BrandingVersionSuffix.Trim())</PackageBrandingVersion>
+
+    <PackageVersion>$(VersionPrefix)</PackageVersion>
+    <PackageVersion Condition="'$(VersionSuffix)' != ''">$(VersionPrefix)-$(VersionSuffix)</PackageVersion>
+  </PropertyGroup>
+</Project>
