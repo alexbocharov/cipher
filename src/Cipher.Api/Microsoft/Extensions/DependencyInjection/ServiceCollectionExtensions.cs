@@ -20,11 +20,11 @@ namespace Microsoft.Extensions.DependencyInjection
             services.AddSwaggerGen(options =>
             {
                 options.DescribeAllEnumsAsStrings();
-                options.SwaggerDoc("v0.1.0", new Swashbuckle.AspNetCore.Swagger.Info
+                options.SwaggerDoc("v1", new Swashbuckle.AspNetCore.Swagger.Info
                 {
                     Title = "Cipher API",
-                    Version = "v0.1.0",
-                    Description = "The Crypto API service",
+                    Version = "v1",
+                    Description = "The Cipher API service",
                     TermsOfService = "Terms Of Service"
                 });
             });

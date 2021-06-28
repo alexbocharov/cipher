@@ -39,10 +39,10 @@ namespace Cipher.Api
             }
 
             app.UseSwagger();
-            app.UseSwaggerUI(options =>
+            app.UseSwaggerUI(c =>
             {
-                options.SwaggerEndpoint($"{ (!string.IsNullOrEmpty(pathBase) ? pathBase : string.Empty) }/swagger/v0.1.0/swagger.json", "Crypton API v0.1.0");
-                options.RoutePrefix = string.Empty;
+                c.RoutePrefix = string.Empty;
+                c.SwaggerEndpoint($"{ (!string.IsNullOrEmpty(pathBase) ? pathBase : string.Empty) }./swagger/v1/swagger.json", "Cipher API v1");
             });
 
             app.UseMvc();
